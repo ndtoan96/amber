@@ -199,6 +199,10 @@ pub struct Opt {
     /// [Experimental] Enable SSE 4.2
     #[structopt(long = "sse")]
     pub sse: bool,
+
+    /// Verbose
+    #[structopt(short = "V", long = "verbose")]
+    pub verbose: bool
 }
 
 #[derive(Debug, Deserialize)]
@@ -429,6 +433,7 @@ fn main() {
     replacer.print_file = opt.file;
     replacer.print_column = opt.column;
     replacer.print_row = opt.row;
+    replacer.verbose = opt.verbose;
 
     let use_regex = opt.regex;
     let use_tbm = opt.tbm;
